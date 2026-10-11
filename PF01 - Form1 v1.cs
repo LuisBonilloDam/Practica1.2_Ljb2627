@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             //Leo el telegrama 
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
-            if (cbUrgente.Checked)
+            if (rbUrgente.Checked)    // Modificado por el Desarrollador 1, Dev1
                 tipoTelegrama = 'u';
             //Obtengo el número de palabras que forma el telegrama 
             char[] chars = { ' ', '.', ',', ';', ':', '?', '\n', '\r' }; // SOLUCIONADO POR
