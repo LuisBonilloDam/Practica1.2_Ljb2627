@@ -23,29 +23,30 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = ' ';
+            char tipoTelegrama = 'o';    // SOLUCIONADO POR EL Desarrollador 2, DEV2
             int numPalabras = 0;
             double coste;
 
             //Leo el telegrama 
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
-            if (cbUrgente.Checked)
+            if (rbUrgente.Checked)    // Modificado por el Desarrollador 1, Dev1
                 tipoTelegrama = 'u';
             //Obtengo el número de palabras que forma el telegrama 
-			numPalabras = textoTelegrama.Length;
+            char[] chars = { ' ', '.', ',', ';', ':', '?', '\n', '\r' }; // SOLUCIONADO POR
+            numPalabras = textoTelegrama.Split(chars).Count;			 // Desarrollador 1, Dev1
             //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 3; // SOLUCIONADO POR EL Desarrollador 2, DEV2 (Actualizamos precios)
                 else
-                    coste = 0.5 * numPalabras;
+                    coste = 2.5 + 0.5 * (numPalabras - 10);    // SOLUCIONADO POR EL Desarrollador 2, DEV2
             else
             //Si el telegrama es urgente
             if (tipoTelegrama == 'u')
                 if (numPalabras <= 10)
-                    coste = 5;
-                else
+                    coste = 6; // SOLUCIONADO POR EL Desarrollador 2, DEV2 (Actualizamos precios)
+                    else
                     coste = 5 + 0.75 * (numPalabras - 10);
             else
                 coste = 0;
